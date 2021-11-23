@@ -1,0 +1,242 @@
+.main {
+	position: absolute;
+	top: 72px;
+	width: 100%;
+	height: 100%;
+
+	.header {
+		margin-bottom: 24px;
+	}
+
+	.main-form {
+		display: flex;
+		flex-direction: column;
+		background: #141625;
+
+		h3 {
+			color: #7c5dfa;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 12px;
+			line-height: 15px;
+			letter-spacing: -0.25px;
+			margin-bottom: 24px;
+		}
+
+		.new-invoice-control {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 24px;
+
+			label {
+				color: #888eb0;
+				font-weight: 500;
+				font-style: normal;
+				font-size: 12px;
+				line-height: 15px;
+				letter-spacing: -0.25px;
+				margin-bottom: 10px;
+			}
+
+			input,
+			select {
+				height: 48px;
+				border: 1px solid #252945;
+				background-color: #1e2139;
+				color: #ffffff;
+				box-sizing: border-box;
+				border-radius: 4px;
+				font-family: Spartan;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 12px;
+				line-height: 15px;
+				letter-spacing: -0.25px;
+				padding-left: 20px;
+				width: 327px;
+			}
+		}
+
+		h2 {
+			color: #ffffff;
+			font-weight: 700;
+			font-style: normal;
+			font-size: 24px;
+			line-height: 32px;
+			letter-spacing: -0.5px;
+			margin-left: 24px;
+		}
+
+		.bill-from {
+			margin-left: 24px;
+			display: flex;
+			flex-direction: column;
+
+			.small-input {
+				display: flex;
+
+				.small {
+					width: 152px;
+					margin-right: 23px;
+				}
+			}
+		}
+
+		.bill-to {
+			margin-left: 24px;
+
+			.small-input {
+				display: flex;
+
+				.small {
+					width: 152px;
+					margin-right: 23px;
+				}
+			}
+		}
+
+		.item-list {
+			margin-left: 24px;
+
+			.item {
+				margin-bottom: 48px;
+			}
+
+			h4 {
+				color: #777f98;
+				font-weight: 700;
+				font-style: normal;
+				font-size: 18px;
+				line-height: 32px;
+				letter-spacing: -0.38px;
+			}
+
+			.item-stats {
+				display: flex;
+
+				.qty-div,
+				.price-div {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+
+					label {
+						color: #888eb0;
+						font-weight: 500;
+						font-style: normal;
+						font-size: 12px;
+						line-height: 15px;
+						letter-spacing: -0.25px;
+						margin-bottom: 10px;
+					}
+
+					input {
+						height: 48px;
+						border: 1px solid #252945;
+						background-color: #1e2139;
+						color: #ffffff;
+						box-sizing: border-box;
+						border-radius: 4px;
+						font-family: Spartan;
+						font-style: normal;
+						font-weight: 700;
+						font-size: 12px;
+						line-height: 15px;
+						letter-spacing: -0.25px;
+						padding-left: 20px;
+						width: 327px;
+					}
+
+					output {
+						width: 64px;
+						margin-right: 50px;
+					}
+
+					.quantity {
+						width: 64px;
+						margin-right: 18px;
+					}
+
+					.price {
+						width: 100px;
+						margin-right: 16px;
+					}
+				}
+
+				img {
+					align-self: center;
+					margin-top: 20px;
+				}
+			}
+
+			.new-item {
+				cursor: pointer;
+				width: 327px;
+				height: 48px;
+				color: #888eb0;
+				font-family: Spartan;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 12px;
+				line-height: 15px;
+				text-align: center;
+				letter-spacing: -0.25px;
+				background: #252945;
+				border-radius: 24px;
+				border: none;
+				margin-top: 48px;
+				margin-bottom: 24px;
+			}
+
+			.linear {
+				background: linear-gradient(
+					180deg,
+					rgba(0, 0, 0, 0.0001) 0%,
+					rgba(0, 0, 0, 0.1) 100%
+				);
+				width: 375px;
+				height: 64px;
+			}
+		}
+		.button-div-bottom {
+			margin: 0;
+			width: 375px;
+			height: 91px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			button {
+				border: none;
+				height: 48px;
+				font-family: Spartan;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 12px;
+				line-height: 15px;
+				margin-right: 7px;
+				letter-spacing: -0.25px;
+				border-radius: 24px;
+			}
+
+			.discard {
+				width: 84px;
+				background-color: #252945;
+				color: #dfe3fa;
+			}
+
+			.draft {
+				width: 117px;
+				background-color: #373b53;
+				color: #dfe3fa;
+			}
+
+			.save-send {
+				width: 112px;
+				background-color: #7c5dfa;
+				color: #ffffff;
+				margin: 0;
+			}
+		}
+	}
+}

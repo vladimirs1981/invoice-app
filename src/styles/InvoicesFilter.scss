@@ -1,0 +1,36 @@
+$whiteColor: #ffffff;
+
+.invoices-filter {
+	color: $whiteColor;
+
+	.invoices-filter-control {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		label {
+			font-weight: 700;
+			font-style: normal;
+			font-size: 12px;
+			line-height: 15px;
+			letter-spacing: -0.25px;
+			margin-right: 12px;
+		}
+
+		select {
+			// -webkit-appearance: none;
+			// -moz-appearance: none;
+			// --webkit-user-select: none;
+			// --moz-user-select: none;
+			// appearance: none;
+			background: transparent;
+			width: 20px;
+			border: none;
+			padding: 0;
+
+			option {
+				background-color: #141625;
+			}
+		}
+	}
+}
