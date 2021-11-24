@@ -12,6 +12,9 @@ $leftBorder: #494e6e;
 	align-items: center;
 	justify-content: space-between;
 
+	@media only screen and (min-width: 600px) {
+		height: 80px;
+	}
 	.left-div {
 		background-color: $purpleMain;
 		width: 72px;
@@ -21,6 +24,10 @@ $leftBorder: #494e6e;
 		flex-direction: column;
 		justify-content: flex-end;
 		border-radius: 0px 20px 20px 0px;
+		@media only screen and (min-width: 600px) {
+			width: 80px;
+			align-items: center;
+		}
 
 		.inner-left-div {
 			background-color: $puprpleSecond;
@@ -28,6 +35,9 @@ $leftBorder: #494e6e;
 			width: 100%;
 			z-index: 1;
 			border-radius: 20px 0px 20px 0px;
+			@media only screen and (min-width: 600px) {
+				height: 40px;
+			}
 		}
 
 		img {
@@ -47,6 +57,9 @@ $leftBorder: #494e6e;
 		.toggle-button-div {
 			cursor: pointer;
 			margin-right: 24.01px;
+			@media only screen and (min-width: 600px) {
+				margin-right: 32px;
+			}
 
 			.moon {
 				display: none;

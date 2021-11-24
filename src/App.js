@@ -12,6 +12,12 @@ import ViewInvoice from './components/ViewInvoice';
 function App() {
 	const [currentData, setCurrentData] = useState(data);
 
+	const addInvoiceHandler = (invoice) => {
+		setCurrentData((prevInvoices) => {
+			return [invoice, ...prevInvoices];
+		});
+	};
+
 	return (
 		<BrowserRouter>
 			<div>
@@ -19,7 +25,9 @@ function App() {
 				<Route
 					path='/'
 					exact
-					component={() => <Invoices invoices={currentData} />}
+					component={() => (
+						<Invoices invoices={currentData} onAddInvoice={addInvoiceHandler} />
+					)}
 				/>
 				<Route
 					path='/detail/:id'

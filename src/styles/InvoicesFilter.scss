@@ -15,6 +15,13 @@ $whiteColor: #ffffff;
 			line-height: 15px;
 			letter-spacing: -0.25px;
 			margin-right: 12px;
+
+			span {
+				display: none;
+				@media only screen and (min-width: 600px) {
+					display: contents;
+				}
+			}
 		}
 
 		select {

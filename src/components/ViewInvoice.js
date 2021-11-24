@@ -6,6 +6,7 @@ import Status from './Status';
 import LeftArrow from '../assets/svg/icon-arrow-left.svg';
 
 import { dateFormat, currencyFormat } from '../Services';
+import EditInvoice from './EditInvoice';
 
 const ViewInvoice = (props) => {
 	const location = useLocation();
@@ -16,6 +17,7 @@ const ViewInvoice = (props) => {
 	const currentData = [...props.invoices];
 
 	const [isEditing, setIsEditing] = useState(false);
+	const [toggleEdit, setToggleEdit] = useState(false);
 
 	const startEditingHandler = () => {
 		setIsEditing(true);
@@ -23,6 +25,14 @@ const ViewInvoice = (props) => {
 
 	const stopEditingHandler = () => {
 		setIsEditing(false);
+	};
+
+	const startToggleEditingHandler = () => {
+		setToggleEdit(true);
+	};
+
+	const stopToggleEditingHandler = () => {
+		setToggleEdit(false);
 	};
 
 	const newData = props.invoices.filter((elem) => elem.id === invoiceId)[0];
@@ -58,45 +68,65 @@ const ViewInvoice = (props) => {
 				<Status status={newData.status} />
 			</div>
 			<div className='main-info-div'>
-				<div className='top-info'>
-					<h2>
-						<span>#</span>
-						{newData.id}
-					</h2>
-					<p>{newData.description}</p>
-				</div>
-				<div className='address-div'>
-					<p>{newData.senderAddress.street}</p>
-					<p>{newData.senderAddress.city}</p>
-					<p>{newData.senderAddress.postCode}</p>
-					<p>{newData.senderAddress.country}</p>
-				</div>
-				<div className='middle-info'>
-					<div className='date-pay-div'>
-						<h3>Invoice Date</h3>
-						<h2 className='date'>{dateFormat(newData.createdAt)}</h2>
-						<h3>Payment Due</h3>
-						<h2>{dateFormat(newData.paymentDue)}</h2>
+				<div className="top-wrapper">
+					<div className='top-info'>
+						<h2>
+							<span>#</span>
+							{newData.id}
+						</h2>
+						<p>{newData.description}</p>
 					</div>
-					<div className='bill-info'>
-						<h3>Bill To</h3>
-						<h2>{newData.clientName}</h2>
-						<p>{newData.clientAddress.street}</p>
-						<p>{newData.clientAddress.city}</p>
-						<p>{newData.clientAddress.postCode}</p>
-						<p>{newData.clientAddress.country}</p>
+					<div className='address-div'>
+						<p>{newData.senderAddress.street}</p>
+						<p>{newData.senderAddress.city}</p>
+						<p>{newData.senderAddress.postCode}</p>
+						<p>{newData.senderAddress.country}</p>
 					</div>
 				</div>
-				<div className='sent-to-div'>
-					<h3>Sent to</h3>
-					<h2>{newData.clientEmail}</h2>
+				<div className="middle-wrapper">
+					<div className='middle-info'>
+						<div className='date-pay-div'>
+							<h3>Invoice Date</h3>
+							<h2 className='date'>{dateFormat(newData.createdAt)}</h2>
+							<h3>Payment Due</h3>
+							<h2>{dateFormat(newData.paymentDue)}</h2>
+						</div>
+						<div className='bill-info'>
+							<h3>Bill To</h3>
+							<h2>{newData.clientName}</h2>
+							<p>{newData.clientAddress.street}</p>
+							<p>{newData.clientAddress.city}</p>
+							<p>{newData.clientAddress.postCode}</p>
+							<p>{newData.clientAddress.country}</p>
+						</div>
+					</div>
+					<div className='sent-to-div'>
+						<h3>Sent to</h3>
+						<h2>{newData.clientEmail}</h2>
+					</div>
 				</div>
 				<div className='bottom-div'>
 					<div className='items'>
+						<div className="hidden-titles">
+							<div className="item-name-hidden">
+								<h4>Item Name</h4>
+							</div>
+							<div className="item-qty-hidden">
+								<h4>QTY.</h4>
+							</div>
+							<div className="item-price-hidden">
+								<h4>Price</h4>
+							</div>
+							<div className="item-total-hidden">
+								<h4>Total</h4>
+							</div>
+						</div>
 						{newData.items.map((item) => (
 							<div className='item-div'>
 								<div className='item-name'>
 									<h3>{item.name}</h3>
+									<div id='qty-div-h4' className='hidden-divs'><h4>{item.quantity}</h4></div>
+									<div className='hidden-divs'><h4>{currencyFormat(item.price)}</h4></div>
 									<p>
 										{item.quantity} x {currencyFormat(item.price)}
 									</p>
@@ -112,7 +142,9 @@ const ViewInvoice = (props) => {
 				</div>
 			</div>
 			<div className='button-div'>
-				<button className='edit-button'>Edit</button>
+				<button className='edit-button' onClick={startToggleEditingHandler}>
+					Edit
+				</button>
 				{!isEditing && (
 					<button className='delete-button' onClick={startEditingHandler}>
 						Delete
@@ -144,6 +176,12 @@ const ViewInvoice = (props) => {
 						</div>
 					</div>
 				</div>
+			)}
+			{toggleEdit && (
+				<EditInvoice
+					newData={newData}
+					stopToggleEditingHandler={stopToggleEditingHandler}
+				/>
 			)}
 		</div>
 	);

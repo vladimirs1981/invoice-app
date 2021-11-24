@@ -8,7 +8,11 @@ const Header = (props) => {
 		<div className='header-div'>
 			<div className='left-div'>
 				<h2>Invoices</h2>
-				<p>{props.size} invoices</p>
+				<p>
+					<span>There are </span>
+					{props.size}
+					<span> total</span> invoices
+				</p>
 			</div>
 			<InvoicesFilter
 				selected={props.filteredStatus}
@@ -18,7 +22,9 @@ const Header = (props) => {
 				<div className='circle-div'>
 					<img src={plus} />
 				</div>
-				<h3>New</h3>
+				<h3>
+					New <span>Invoice</span>
+				</h3>
 			</div>
 		</div>
 	);

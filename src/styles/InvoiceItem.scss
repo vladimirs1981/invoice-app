@@ -12,6 +12,13 @@
 	padding-left: 24px;
 	padding-right: 24px;
 
+	@media only screen and (min-width: 600px) {
+		position: relative;
+		width: 672px;
+		height: 72px;
+		padding-right: 48px;
+	}
+
 	.top {
 		display: flex;
 		align-items: center;
@@ -36,6 +43,13 @@
 				line-height: 15px;
 				letter-spacing: -0.25px;
 			}
+			@media only screen and (min-width: 600px) {
+				position: absolute;
+				top: 22px;
+
+				// flex-direction: row;
+				// justify-content: flex-start;
+			}
 		}
 
 		h3 {
@@ -44,6 +58,11 @@
 			font-size: 12px;
 			line-height: 15px;
 			letter-spacing: -0.25px;
+			@media only screen and (min-width: 600px) {
+				position: absolute;
+				top: 20px;
+				left: 254px;
+			}
 		}
 	}
 
@@ -61,6 +80,11 @@
 				line-height: 15px;
 				letter-spacing: -0.25px;
 				margin-bottom: 8px;
+				@media only screen and (min-width: 600px) {
+					position: absolute;
+					top: 20px;
+					left: 111px;
+				}
 			}
 
 			h2 {
@@ -69,6 +93,20 @@
 				font-size: 16px;
 				line-height: 24px;
 				letter-spacing: -0.8px;
+				@media only screen and (min-width: 600px) {
+					position: absolute;
+					top: 14px;
+					right: 192px;
+				}
+			}
+		}
+
+		img {
+			display: none;
+			@media only screen and (min-width: 600px) {
+				display: block;
+				position: absolute;
+				right: 20px;
 			}
 		}
 	}

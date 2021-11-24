@@ -8,7 +8,9 @@ const InvoicesFilter = (props) => {
 	return (
 		<div className='invoices-filter'>
 			<div className='invoices-filter-control'>
-				<label>Filter</label>
+				<label>
+					Filter <span> by status</span>
+				</label>
 				<select value={props.selected} onChange={dropDownChangeHandler}>
 					<option value='all'>All</option>
 					<option value='draft'>Draft</option>

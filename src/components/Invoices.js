@@ -12,6 +12,15 @@ const Invoices = (props) => {
 
 	const [isEditing, setIsEditing] = useState(false);
 
+	const saveInvoiceDataHandler = (enteredInvoiceData) => {
+		const invoiceData = {
+			...enteredInvoiceData,
+			id: Math.random().toString(36).substr(2, 6).toUpperCase(),
+			status: 'pending',
+		};
+		props.onAddInvoice(invoiceData);
+	};
+
 	const startEditingHandler = () => {
 		setIsEditing(true);
 	};
@@ -54,7 +63,12 @@ const Invoices = (props) => {
 						details={elem}
 					/>
 				))}
-			{isEditing && <NewInvoice stopEditingHandler={stopEditingHandler} />}
+			{isEditing && (
+				<NewInvoice
+					stopEditingHandler={stopEditingHandler}
+					onSaveInvoiceData={saveInvoiceDataHandler}
+				/>
+			)}
 		</div>
 	);
 };

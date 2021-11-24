@@ -4,6 +4,7 @@ import '../styles/InvoiceItem.scss';
 import { Link } from 'react-router-dom';
 
 import { dateFormat, currencyFormat } from '../Services';
+import RightArrow from '../assets/svg/icon-arrow-right.svg';
 
 const InvoiceItem = (props) => {
 	const viewInvoiceHandler = () => {
@@ -25,8 +26,8 @@ const InvoiceItem = (props) => {
 						<p>Due {dateFormat(props.date)}</p>
 						<h2>{currencyFormat(props.total)}</h2>
 					</div>
-
 					<Status status={props.status} />
+					<img src={RightArrow} alt="view" />
 				</div>
 			</Link>
 		</div>

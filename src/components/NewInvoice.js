@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/NewInvoice.scss';
 import LeftArrow from '../assets/svg/icon-arrow-left.svg';
 import TrashCan from '../assets/svg/icon-delete.svg';
@@ -9,20 +8,34 @@ const Item = (props) => {
 		<div className='item'>
 			<div className='new-invoice-control'>
 				<label>Item Name</label>
-				<input type='text' />
+				<input value={props.newInvoice.items.name} name='name' type='text' />
 			</div>
 			<div className='item-stats'>
 				<div className='qty-div'>
 					<label>Qty.</label>
-					<input className='quantity' type='number' />
+					<input
+						value={props.newInvoice.items.quantity}
+						name='quantity'
+						className='quantity'
+						type='number'
+					/>
 				</div>
 				<div className='price-div'>
 					<label>Price</label>
-					<input className='price' type='number' />
+					<input
+						value={props.newInvoice.items.price}
+						name='price'
+						className='price'
+						type='number'
+					/>
 				</div>
 				<div className='price-div'>
 					<label>Total</label>
-					<output type='number' />
+					<output
+						value={props.newInvoice.items.total}
+						name='total'
+						type='number'
+					/>
 				</div>
 				<img src={TrashCan} alt='delete' onClick={props.onDeleteItemHandler} />
 			</div>
@@ -32,12 +45,57 @@ const Item = (props) => {
 
 const NewInvoice = (props) => {
 	const [itemList, setItemList] = useState([]);
+	const [newInvoice, setNewInvoice] = useState({
+		clientAddress: {
+			street: '',
+			city: '',
+			postCode: '',
+			country: '',
+		},
+		clientEmail: '',
+		clientName: '',
+		createdAt: '',
+		description: '',
+		items: [],
+		paymentDue: '',
+		senderAddress: {
+			street: '',
+			city: '',
+			postCode: '',
+			country: '',
+		},
+		total: '',
+	});
+
+	const handleChange = (e, elem) => {
+		const value = e.target.value;
+		const name =
+			elem === 'clientAddress'
+				? newInvoice.clientAddress[e.target.name]
+				: elem === 'senderAddress'
+				? newInvoice.senderAddress[e.target.name]
+				: e.target.name;
+
+		setNewInvoice({
+			...newInvoice,
+			[name]: value,
+		});
+	};
+
+	const submitHandler = (e) => {
+		e.preventDefault();
+		props.onSaveInvoiceData(newInvoice);
+	};
 
 	const onAddItemHandler = (e) => {
 		e.preventDefault();
 		setItemList(
 			itemList.concat(
-				<Item key={itemList.length} onDeleteItemHandler={onDeleteItemHandler} />
+				<Item
+					key={itemList.length}
+					onDeleteItemHandler={onDeleteItemHandler}
+					newInvoice={newInvoice}
+				/>
 			)
 		);
 	};
@@ -47,67 +105,126 @@ const NewInvoice = (props) => {
 	};
 
 	return (
-		<div className='main'>
-			<div className='header'>
+		<div className='main-new'>
+			<div className='header-new'>
 				<img src={LeftArrow} onClick={props.stopEditingHandler} />
 
 				<h2>Go back</h2>
 			</div>
 
-			<form action='' className='main-form'>
+			<form action='' className='main-form' onSubmit={submitHandler}>
 				<h2>New Invoice</h2>
 				<div className='bill-from'>
 					<h3>Bill From</h3>
 					<div className='new-invoice-control'>
 						<label>Street Address</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.senderAddress.street}
+							name='street'
+							type='text'
+							onChange={handleChange}
+						/>
 					</div>
 
 					<div className='small-input'>
 						<div className='new-invoice-control'>
 							<label>City</label>
-							<input className='small' type='text' />
+							<input
+								// value={newInvoice.senderAddress.city}
+								name='city'
+								className='small'
+								type='text'
+								onChange={handleChange}
+							/>
 						</div>
 						<div className='new-invoice-control'>
 							<label>Post Code</label>
-							<input className='small' type='text' />
+							<input
+								// value={newInvoice.senderAddress.postCode}
+								name='postCode'
+								className='small'
+								type='text'
+								onChange={handleChange}
+							/>
 						</div>
 					</div>
 					<div className='new-invoice-control'>
 						<label htmlFor=''>Country</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.senderAddress.country}
+							name='senderAddress:country'
+							type='text'
+							onChange={handleChange}
+						/>
 					</div>
 				</div>
 				<div className='bill-to'>
 					<div className='new-invoice-control'>
 						<label htmlFor=''>Client's Name</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.clientName}
+							name='clientName'
+							type='text'
+							onChange={handleChange}
+						/>
 					</div>
 					<div className='new-invoice-control'>
 						<label htmlFor=''>Client's Email</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.clientEmail}
+							name='clientEmail'
+							type='text'
+							onChange={handleChange}
+						/>
 					</div>
 					<div className='new-invoice-control'>
 						<label htmlFor=''>Street Address</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.clientAddress.street}
+							name='street'
+							type='text'
+							onChange={(e) => handleChange(e, 'clientAddress')}
+						/>
 					</div>
 					<div className='small-input'>
 						<div className='new-invoice-control'>
 							<label>City</label>
-							<input className='small' type='text' />
+							<input
+								// value={newInvoice.clientAddress.city}
+								name='city'
+								className='small'
+								type='text'
+								onChange={handleChange}
+							/>
 						</div>
 						<div className='new-invoice-control'>
 							<label>Post Code</label>
-							<input className='small' type='text' />
+							<input
+								// value={newInvoice.clientAddress.postCode}
+								name='postCode'
+								className='small'
+								type='text'
+								onChange={handleChange}
+							/>
 						</div>
 					</div>
 					<div className='new-invoice-control'>
 						<label>Country</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.clientAddress.country}
+							name='country'
+							type='text'
+							onChange={handleChange}
+						/>
 					</div>
 					<div className='new-invoice-control'>
 						<label>Invoice Date</label>
-						<input type='date' />
+						<input
+							// value={new Date(newInvoice.createdAt)}
+							name='createdAt'
+							type='date'
+							onChange={handleChange}
+						/>
 					</div>
 					<div className='new-invoice-control'>
 						<label>Payment Terms</label>
@@ -120,7 +237,12 @@ const NewInvoice = (props) => {
 					</div>
 					<div className='new-invoice-control'>
 						<label>Project Description</label>
-						<input type='text' />
+						<input
+							// value={newInvoice.description}
+							name='description'
+							type='text'
+							onChange={handleChange}
+						/>
 					</div>
 				</div>
 				<div className='item-list'>
