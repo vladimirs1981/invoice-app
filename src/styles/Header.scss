@@ -12,9 +12,12 @@ $whiteColor: #ffffff;
 		padding: 0 48px;
 		margin-bottom: 56px;
 	}
+	@media only screen and (min-width: 1280px) {
+		padding: 0;
+		justify-content: space-between;
+	}
 
 	.left-div {
-		color: $whiteColor;
 		margin-right: 81px;
 		@media only screen and (min-width: 600px) {
 			margin-right: 209px;
@@ -62,6 +65,9 @@ $whiteColor: #ffffff;
 		background-color: #7c5dfa;
 		margin-left: 18px;
 		border-radius: 24px;
+		&:hover {
+			background-color: #9277ff;
+		}
 		@media only screen and (min-width: 600px) {
 			width: 150px;
 			height: 48px;

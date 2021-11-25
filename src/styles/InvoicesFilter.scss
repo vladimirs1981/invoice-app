@@ -2,6 +2,7 @@ $whiteColor: #ffffff;
 
 .invoices-filter {
 	color: $whiteColor;
+	cursor: pointer;
 
 	.invoices-filter-control {
 		display: flex;
@@ -15,6 +16,7 @@ $whiteColor: #ffffff;
 			line-height: 15px;
 			letter-spacing: -0.25px;
 			margin-right: 12px;
+			cursor: pointer;
 
 			span {
 				display: none;
@@ -25,19 +27,11 @@ $whiteColor: #ffffff;
 		}
 
 		select {
-			// -webkit-appearance: none;
-			// -moz-appearance: none;
-			// --webkit-user-select: none;
-			// --moz-user-select: none;
-			// appearance: none;
 			background: transparent;
 			width: 20px;
 			border: none;
 			padding: 0;
-
-			option {
-				background-color: #141625;
-			}
+			cursor: pointer;
 		}
 	}
 }

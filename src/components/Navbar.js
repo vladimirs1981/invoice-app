@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/Navbar.scss';
-
+import { moon } from '../assets/images';
+import { sun } from '../assets/images';
 import logo from '../assets/svg/logo.svg';
-import sun from '../assets/svg/icon-sun.svg';
-import moon from '../assets/svg/icon-moon.svg';
+
 import avatar from '../assets/img/image-avatar.jpg';
+import { ThemeContext } from '../context/theme';
 
 const Navbar = () => {
+	const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
+
+	const icon = {};
 	return (
 		<div className='main-navbar-div'>
 			<div className='left-div'>
@@ -14,9 +18,8 @@ const Navbar = () => {
 				<img src={logo} />
 			</div>
 			<div className='right-div'>
-				<div className='toggle-button-div'>
-					<img className='sun' src={sun} />
-					<img className='moon' src={moon} />
+				<div className='toggle-button-div' onClick={toggleTheme}>
+					{isDark ? sun : moon}
 				</div>
 				<div className='avatar-div'>
 					<img src={avatar} />

@@ -3,7 +3,6 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 0 24px;
-	background-color: #141625;
 	@media only screen and (min-width: 600px) {
 		padding: 0 40px;
 	}
@@ -29,7 +28,6 @@
 			font-size: 12px;
 			line-height: 15px;
 			letter-spacing: -0.25px;
-			color: #ffffff;
 		}
 	}
 
@@ -39,7 +37,6 @@
 		justify-content: space-between;
 		width: 327px;
 		height: 91px;
-		background-color: #1e2139;
 		box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
 		border-radius: 8px;
 		padding: 0 24px;
@@ -53,7 +50,6 @@
 		}
 
 		h3 {
-			color: #dfe3fa;
 			font-weight: 500;
 			font-style: normal;
 			font-size: 12px;
@@ -95,12 +91,10 @@
 				line-height: 15px;
 				letter-spacing: -0.25px;
 				font-weight: 500;
-				color: #dfe3fa;
 			}
 
 			h2 {
 				font-weight: 700;
-				color: #ffffff;
 				@media only screen and (min-width: 600px) {
 					font-size: 16px;
 					line-height: 24px;
@@ -115,7 +109,6 @@
 		}
 
 		.address-div {
-			color: #dfe3fa;
 			font-weight: 500;
 			font-style: normal;
 			font-size: 11px;
@@ -162,7 +155,6 @@
 					line-height: 15px;
 					letter-spacing: -0.25px;
 					font-weight: 500;
-					color: #dfe3fa;
 					margin-bottom: 12px;
 				}
 
@@ -172,7 +164,6 @@
 					line-height: 20px;
 					letter-spacing: -0.31px;
 					font-weight: 700;
-					color: #ffffff;
 				}
 
 				p {
@@ -181,7 +172,6 @@
 					line-height: 18px;
 					letter-spacing: -0.23px;
 					font-weight: 500;
-					color: #dfe3fa;
 					margin: 0;
 					margin-bottom: 1px;
 				}
@@ -198,7 +188,6 @@
 					line-height: 15px;
 					letter-spacing: -0.25px;
 					font-weight: 500;
-					color: #dfe3fa;
 					margin-bottom: 12px;
 				}
 
@@ -208,14 +197,12 @@
 					line-height: 20px;
 					letter-spacing: -0.31px;
 					font-weight: 700;
-					color: #ffffff;
 				}
 			}
 		}
 
 		.bottom-div {
 			width: 279px;
-			background-color: #252945;
 			border-radius: 8px 8px 8px 8px;
 			padding: 24px 24px 0 24px;
 			display: flex;
@@ -233,12 +220,8 @@
 				line-height: 20px;
 				letter-spacing: -0.31px;
 				font-weight: 700;
-				color: #ffffff;
 			}
 
-			p {
-				color: #888eb0;
-			}
 			.items {
 				.hidden-titles {
 					display: none;
@@ -296,6 +279,19 @@
 							}
 						}
 
+						#name-toggle {
+							display: block;
+							font-style: normal;
+							font-size: 15px;
+							line-height: 20px;
+							letter-spacing: -0.31px;
+							font-weight: 700;
+							margin-bottom: 8px;
+							@media only screen and (min-width: 600px) {
+								display: none;
+							}
+						}
+
 						.hidden-divs {
 							display: none;
 							@media only screen and (min-width: 600px) {
@@ -308,20 +304,37 @@
 									font-size: 12px;
 									line-height: 15px;
 									letter-spacing: -0.25px;
-									color: #ffffff;
 								}
+							}
+						}
+
+						#name-div-h3 {
+							@media only screen and (min-width: 600px) {
+								margin-right: 146px;
+								width: 110px;
 							}
 						}
 
 						#qty-div-h4 {
 							@media only screen and (min-width: 600px) {
-								margin-right: 74px;
+								margin-right: 62px;
+								width: 20px;
+								text-align: right;
+							}
+							@media only screen and (min-width: 1280px) {
+								margin-right: 62px;
+							}
+						}
+
+						#price-div-h4 {
+							@media only screen and (min-width: 600px) {
+								width: 80px;
+								text-align: right;
 							}
 						}
 
 						h3 {
 							@media only screen and (min-width: 600px) {
-								margin-right: 150px;
 								font-size: 12px;
 								line-height: 15px;
 								letter-spacing: -0.25px;
@@ -350,7 +363,6 @@
 			margin: 0;
 			width: 279px;
 			height: 80px;
-			background-color: #0c0e16;
 			margin-top: 12px;
 			border-radius: 0px 0px 8px 8px;
 			@media only screen and (min-width: 600px) {
@@ -398,6 +410,10 @@
 			top: 139px;
 			right: 46px;
 		}
+		@media only screen and (min-width: 1280px) {
+			top: 59px;
+			right: 382px;
+		}
 
 		button {
 			cursor: pointer;
@@ -415,20 +431,29 @@
 
 		.edit-button {
 			width: 73px;
-			color: #dfe3fa;
 			background-color: #252945;
+			&:hover {
+				background-color: #ffffff;
+				color: #7e88c3;
+			}
 		}
 
 		.delete-button {
 			width: 89px;
 			color: #ffffff;
 			background-color: #ec5757;
+			&:hover {
+				background-color: #ff9797;
+			}
 		}
 
 		.mark-button {
 			width: 149px;
 			color: #ffffff;
 			background-color: #7c5dfa;
+			&:hover {
+				background-color: #9277ff;
+			}
 		}
 	}
 
@@ -450,13 +475,16 @@
 			justify-content: flex-start;
 			width: 327px;
 			height: 220px;
-			background-color: #1e2139;
 			box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
 			border-radius: 8px;
 			padding: 32px;
+			@media only screen and (min-width: 600px) {
+				width: 480px;
+				height: 249px;
+				padding: 48px;
+			}
 
 			h2 {
-				color: #ffffff;
 				font-weight: 700;
 				font-style: normal;
 				font-size: 20px;
@@ -464,6 +492,10 @@
 				letter-spacing: -0.42px;
 				margin: 0;
 				margin-bottom: 8px;
+				@media only screen and (min-width: 600px) {
+					font-size: 24px;
+					letter-spacing: -0.5px;
+				}
 			}
 
 			p {
@@ -496,12 +528,19 @@
 					width: 91px;
 					color: #dfe3fa;
 					background-color: #252945;
+					&:hover {
+						background-color: #ffffff;
+						color: #7e88c3;
+					}
 				}
 
 				.delete-button {
 					width: 89px;
 					color: #ffffff;
 					background-color: #ec5757;
+					&:hover {
+						background-color: #ff9797;
+					}
 				}
 			}
 		}

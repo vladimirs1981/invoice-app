@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -8,8 +8,11 @@ import data from './data/data.json';
 import Navbar from './components/Navbar';
 import Invoices from './components/Invoices';
 import ViewInvoice from './components/ViewInvoice';
+import { ThemeContext } from './context/theme';
 
 function App() {
+	const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
+	console.log(theme);
 	const [currentData, setCurrentData] = useState(data);
 
 	const addInvoiceHandler = (invoice) => {
@@ -20,7 +23,7 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<div>
+			<div className='app' style={{ backgroundColor: theme.backgroundColor }}>
 				<Navbar />
 				<Route
 					path='/'

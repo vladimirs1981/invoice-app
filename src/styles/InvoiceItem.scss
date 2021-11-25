@@ -3,7 +3,6 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	background: #1e2139;
 	box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
 	border-radius: 8px;
 	width: 327px;
@@ -11,12 +10,20 @@
 	margin-bottom: 16px;
 	padding-left: 24px;
 	padding-right: 24px;
+	&:hover {
+		border: 1px solid #7c5dfa;
+		transition: all 1s ease;
+	}
 
 	@media only screen and (min-width: 600px) {
 		position: relative;
 		width: 672px;
 		height: 72px;
 		padding-right: 48px;
+	}
+
+	@media only screen and (min-width: 1280px) {
+		width: 730px;
 	}
 
 	.top {
@@ -32,10 +39,6 @@
 				color: #7e88c3;
 			}
 
-			h2 {
-				color: #ffffff;
-			}
-
 			span,
 			h2 {
 				font-weight: 700;
@@ -46,14 +49,10 @@
 			@media only screen and (min-width: 600px) {
 				position: absolute;
 				top: 22px;
-
-				// flex-direction: row;
-				// justify-content: flex-start;
 			}
 		}
 
 		h3 {
-			color: #ffffff;
 			font-weight: 500;
 			font-size: 12px;
 			line-height: 15px;
@@ -62,6 +61,9 @@
 				position: absolute;
 				top: 20px;
 				left: 254px;
+			}
+			@media only screen and (min-width: 1280px) {
+				left: 290px;
 			}
 		}
 	}
@@ -74,7 +76,6 @@
 
 		.bottom-left {
 			p {
-				color: #ffffff;
 				font-weight: 500;
 				font-size: 12px;
 				line-height: 15px;
@@ -85,10 +86,12 @@
 					top: 20px;
 					left: 111px;
 				}
+				@media only screen and (min-width: 1280px) {
+					left: 125px;
+				}
 			}
 
 			h2 {
-				color: #ffffff;
 				font-weight: 700;
 				font-size: 16px;
 				line-height: 24px;

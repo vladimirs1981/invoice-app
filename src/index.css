@@ -10,5 +10,12 @@ html {
 
 body {
 	margin: 0;
-	background-color: #141625;
+}
+
+@media only screen and (min-width: 1200px) {
+	body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
