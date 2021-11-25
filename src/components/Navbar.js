@@ -10,7 +10,6 @@ import { ThemeContext } from '../context/theme';
 const Navbar = () => {
 	const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
 
-	const icon = {};
 	return (
 		<div className='main-navbar-div'>
 			<div className='left-div'>
