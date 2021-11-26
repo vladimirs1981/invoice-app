@@ -36,7 +36,7 @@ const NewInvoice = (props) => {
 			country: '',
 		},
 		clientEmail: '',
-		paymentTerms: null,
+		paymentTerms: '',
 		clientName: '',
 		createdAt: '',
 		description: '',
