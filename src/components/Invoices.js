@@ -21,6 +21,15 @@ const Invoices = (props) => {
 		props.onAddInvoice(invoiceData);
 	};
 
+	const saveDraftInvoiceDataHandler = (enteredInvoiceData) => {
+		const invoiceData = {
+			...enteredInvoiceData,
+			id: Math.random().toString(36).substr(2, 6).toUpperCase(),
+			status: 'draft',
+		};
+		props.onAddInvoice(invoiceData);
+	};
+
 	const startEditingHandler = () => {
 		setIsEditing(true);
 	};
@@ -67,6 +76,7 @@ const Invoices = (props) => {
 				<NewInvoice
 					stopEditingHandler={stopEditingHandler}
 					onSaveInvoiceData={saveInvoiceDataHandler}
+					onDraftSaveInvoiceData={saveDraftInvoiceDataHandler}
 				/>
 			)}
 		</div>

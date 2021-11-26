@@ -29,9 +29,7 @@ const InvoiceItem = (props) => {
 				</div>
 				<div className='bottom'>
 					<div className='bottom-left'>
-						<p style={{ color: theme.dateColor }}>
-							Due {dateFormat(props.date)}
-						</p>
+						<p style={{ color: theme.dateColor }}>Due {props.date}</p>
 						<h2 style={{ color: theme.color }}>
 							{currencyFormat(props.total)}
 						</h2>

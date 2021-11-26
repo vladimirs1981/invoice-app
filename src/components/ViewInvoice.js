@@ -17,6 +17,9 @@ const ViewInvoice = (props) => {
 	const invoiceId = location.pathname.split('/')[2];
 
 	const currentData = [...props.invoices];
+	const [newData, setNewData] = useState(
+		props.invoices.filter((elem) => elem.id === invoiceId)[0]
+	);
 
 	const [isEditing, setIsEditing] = useState(false);
 	const [toggleEdit, setToggleEdit] = useState(false);
@@ -36,8 +39,6 @@ const ViewInvoice = (props) => {
 	const stopToggleEditingHandler = () => {
 		setToggleEdit(false);
 	};
-
-	const newData = props.invoices.filter((elem) => elem.id === invoiceId)[0];
 
 	//mark as paid
 	const onChangeStatusHandler = () => {
@@ -96,9 +97,7 @@ const ViewInvoice = (props) => {
 								{dateFormat(newData.createdAt)}
 							</h2>
 							<h3 style={{ color: theme.infoColor }}>Payment Due</h3>
-							<h2 style={{ color: theme.color }}>
-								{dateFormat(newData.paymentDue)}
-							</h2>
+							<h2 style={{ color: theme.color }}>{newData.paymentDue}</h2>
 						</div>
 						<div className='bill-info'>
 							<h3 style={{ color: theme.infoColor }}>Bill To</h3>
@@ -142,7 +141,7 @@ const ViewInvoice = (props) => {
 							</div>
 						</div>
 						{newData.items.map((item) => (
-							<div className='item-div'>
+							<div key={item.id} className='item-div'>
 								<div className='item-name'>
 									<h3 id='name-toggle' style={{ color: theme.color }}>
 										{item.name}
@@ -230,6 +229,7 @@ const ViewInvoice = (props) => {
 			{toggleEdit && (
 				<EditInvoice
 					newData={newData}
+					setNewData={setNewData}
 					stopToggleEditingHandler={stopToggleEditingHandler}
 				/>
 			)}
