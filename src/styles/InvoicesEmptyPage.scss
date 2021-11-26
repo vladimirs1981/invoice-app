@@ -1,0 +1,35 @@
+.emptyDiv {
+	margin-top: 102px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	@media only screen and (min-width: 600px) {
+		margin-top: 210px;
+	}
+	@media only screen and (min-width: 1280px) {
+		margin-top: 141px;
+	}
+	h2 {
+		font-weight: 700;
+		font-style: normal;
+		font-size: 20px;
+		line-height: 22.4px;
+		letter-spacing: -0.63px;
+		margin-top: 40px;
+	}
+
+	p {
+		font-weight: 500;
+		font-style: normal;
+		font-size: 12px;
+		line-height: 15px;
+		letter-spacing: -0.25px;
+		text-align: center;
+		width: 199px;
+		@media only screen and (min-width: 600px) {
+			width: 224px;
+		}
+	}
+}
