@@ -9,22 +9,16 @@ import Navbar from './components/Navbar';
 import Invoices from './components/Invoices';
 import ViewInvoice from './components/ViewInvoice';
 import { ThemeContext } from './context/theme';
-const localData = JSON.parse(localStorage.getItem('localData') || '[]');
+
 function App() {
 	const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
-
 	const [currentData, setCurrentData] = useState(data);
-	const [savedData, setSavedData] = useState(localData);
 
 	const addInvoiceHandler = (invoice) => {
 		setCurrentData((prevInvoices) => {
 			return [invoice, ...prevInvoices];
 		});
 	};
-
-	useEffect(() => {
-		localStorage.setItem('localData', JSON.stringify(currentData));
-	}, []);
 
 	return (
 		<BrowserRouter>
